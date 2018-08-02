@@ -1981,7 +1981,7 @@ CURLcode Curl_retry_request(struct connectdata *conn,
                                 prevent i.e HTTP transfers to return
                                 error just because nothing has been
                                 transferred! */
-
+    conn->inuse = FALSE;
 
     if(conn->handler->protocol&PROTO_FAMILY_HTTP) {
       struct HTTP *http = data->req.protop;
